@@ -6,8 +6,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent {
-  title: string = 'first angular project';
+  title: string = 'Task Tracker';
+  showForm: boolean = false;
+
   toggleAddTask = () => {
-    console.log('toggle add task')
+    console.log('toggle add task' , this.showForm)
+    this.showForm = !this.showForm
   }
 }

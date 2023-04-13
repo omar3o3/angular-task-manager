@@ -1,15 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { Task } from '../../Task';
 import { TaskService } from 'src/app/services/task.service';
-// import { HttpClient } from '@angular/common/http';
-// import { HttpClientModule } from '@angular/common/http';
 
 @Component({
   selector: 'app-tasks',
   templateUrl: './tasks.component.html',
   styleUrls: ['./tasks.component.css']
 })
-export class TasksComponent implements OnInit{
+// export class TasksComponent implements OnInit{
+  export class TasksComponent {
 
   constructor(private taskService: TaskService){}
 
@@ -18,6 +17,11 @@ export class TasksComponent implements OnInit{
   deleteTask(task: Task) {
     console.log("from task parent comp", task)
     this.taskService.deleteTask(task).subscribe(()=> this.tasks = this.tasks.filter(t => t.id !== task.id))
+  }
+
+  toggleReminder(task: Task){
+    task.reminder = !task.reminder
+    this.taskService.updateTaskReminder(task).subscribe()
   }
 
   ngOnInit(): void {
