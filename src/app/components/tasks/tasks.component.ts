@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit , Input} from '@angular/core';
 import { Task } from '../../Task';
 import { TaskService } from 'src/app/services/task.service';
 
@@ -10,7 +10,7 @@ import { TaskService } from 'src/app/services/task.service';
 // export class TasksComponent implements OnInit{
   export class TasksComponent {
 
-  constructor(private taskService: TaskService){}
+  constructor(private taskService: TaskService) { }
 
   tasks: Task[] = []
 
