@@ -7,10 +7,10 @@ import { Component } from '@angular/core';
 })
 export class HeaderComponent {
   title: string = 'Task Tracker';
-  showForm: boolean = false;
+  // showForm: boolean = false;
 
-  toggleAddTask = () => {
-    console.log('toggle add task' , this.showForm)
-    this.showForm = !this.showForm
-  }
+  // toggleAddTask = () => {
+  //   console.log('toggle add task' , this.showForm)
+  //   this.showForm = !this.showForm
+  // }
 }
