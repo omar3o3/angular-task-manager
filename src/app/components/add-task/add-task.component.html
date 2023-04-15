@@ -1,5 +1,5 @@
-<h1 *ngIf="showWarning">You need to provide a task and date</h1>
-<form class="add-form" (ngSubmit)="onSubmit()">
+<h1 *ngIf="showWarning" style="color: red;">You need to provide a task and date</h1>
+<form class="add-form" #myForm="ngForm" (ngSubmit)="onSubmit(myForm)" >
     <div class="form-control">
         <label for="text">Task</label>
         <input type="text" name="text" id="text" placeholder="add task" [(ngModel)] = 'text'>
