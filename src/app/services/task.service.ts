@@ -31,9 +31,11 @@ export class TaskService {
     return this.http.patch<Task>(url, task, httpOptions)
   }
 
-  // addTask(task: Task):Observable<Task> { 
-  //   console.log('from task services')
-  // }
+  addTask(task: Task):Observable<Task>{
+  // addTask(task: Task){
+    // console.log('from task services', task)
+    return this.http.post<Task>(this.apiUrl, task)
+  }
 
 
 
