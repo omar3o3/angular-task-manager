@@ -26,22 +26,15 @@ export class AddTaskComponent implements OnInit{
       this.showWarning = true
     }
     if(this.text && this.day) {
-      // console.log('from filled')
       this.showWarning = false
-      // const newTask = {
-      //   text: this.text,
-      //   day: this.day,
-      //   reminder: this.reminder
-      // }
       const task = {
         text: myForm.value.text,
         day: myForm.value.day,
         reminder: myForm.value.reminder
       }
-      
       this.updateTaskEmitter.emit(task)
-      console.log("from child task" , task)
-
+      myForm.reset()
+      // console.log("from child task" , task)
     }
   }
 
