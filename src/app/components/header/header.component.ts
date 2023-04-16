@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { TaskService } from "../../services/task.service"
 
 @Component({
   selector: 'app-header',
@@ -7,10 +8,7 @@ import { Component } from '@angular/core';
 })
 export class HeaderComponent {
   title: string = 'Task Tracker';
-  // showForm: boolean = false;
 
-  // toggleAddTask = () => {
-  //   console.log('toggle add task' , this.showForm)
-  //   this.showForm = !this.showForm
-  // }
+  constructor(public taskService: TaskService) { }
+
 }

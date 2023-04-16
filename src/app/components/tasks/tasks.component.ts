@@ -9,12 +9,11 @@ import { TaskService } from 'src/app/services/task.service';
 })
 // export class TasksComponent implements OnInit{
 export class TasksComponent {
-  constructor(private taskService: TaskService){}
+  constructor(public taskService: TaskService){}
   
   tasks: Task[] = []
 
   deleteTask(task: Task) {
-    // console.log("from task parent comp", task)
     this.taskService.deleteTask(task).subscribe(()=> this.tasks = this.tasks.filter(t => t.id !== task.id))
   }
 

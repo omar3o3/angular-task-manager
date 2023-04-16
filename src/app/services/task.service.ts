@@ -14,38 +14,38 @@ const httpOptions = {
 })
   
 export class TaskService {
-  private apiUrl = "http://localhost:5000/tasks"
+  private _apiUrl = "http://localhost:5000/tasks"
+  private _formBooleanStatus = false;
 
   constructor(private http: HttpClient) { }
 
   getTasks(): Observable<Task[]> {
-    return this.http.get<Task[]>(this.apiUrl)
+    return this.http.get<Task[]>(this._apiUrl)
   }
 
   deleteTask(task: Task): Observable<Task>{
-    const url = `${this.apiUrl}/${task.id}`;
+    const url = `${this._apiUrl}/${task.id}`;
     return this.http.delete<Task>(url)
   }
 
   updateTaskReminder(task: Task): Observable<Task>{
-    const url = `${this.apiUrl}/${task.id}`;
+    const url = `${this._apiUrl}/${task.id}`;
     return this.http.patch<Task>(url, task, httpOptions)
   }
 
   // FIRST ATTEMPT
   addTask(task: Task):Observable<Task>{
-    return this.http.post<Task>(this.apiUrl, task)
+    return this.http.post<Task>(this._apiUrl, task)
   }
 
-  private formStatusSource = new BehaviorSubject(false); // set default status
-  currentFormStatus = this.formStatusSource.asObservable();
-  // currentFormStatus: boolean = false;
-
-  changeFormStatusService(status: boolean) {
-    // return this.formStatusSource = !this.currentFormStatus
-    this.formStatusSource.next(status)
+  changeFormStatusService() {
+    this._formBooleanStatus = !this._formBooleanStatus;
+    // console.log(this._formBooleanStatus)
   }
 
+  get myBoolean() {
+    return this._formBooleanStatus;
+  }
 
 
 }
