@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { TaskService } from "../../services/task.service"
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -8,7 +9,12 @@ import { TaskService } from "../../services/task.service"
 })
 export class HeaderComponent {
   title: string = 'Task Tracker';
+  // color: string = ''
 
-  constructor(public taskService: TaskService) { }
+  constructor(public taskService: TaskService, private router: Router) { }
+
+  hasRoute(route: string) {
+    return this.router.url === route
+  }
 
 }

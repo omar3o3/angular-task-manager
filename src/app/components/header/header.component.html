@@ -2,5 +2,9 @@
     <h1>
         {{title}}
     </h1>
-    <app-button color="green" [text]="taskService.myBoolean ? 'Hide Form' : 'Add New Task'"/>
+    <app-button 
+        *ngIf="hasRoute('/')" 
+        [color]="taskService.myBoolean ? 'red' : 'green'"
+        [text]="taskService.myBoolean ? 'Hide Form' : 'Add New Task'"
+    />
 </header>
