@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Task } from '../Task';
 import { Observable } from 'rxjs'
-import { HttpClient , HttpHeaders } from "@angular/common/http"
+import { HttpClient, HttpHeaders } from "@angular/common/http"
+import { BehaviorSubject } from 'rxjs';
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -34,6 +35,15 @@ export class TaskService {
   // FIRST ATTEMPT
   addTask(task: Task):Observable<Task>{
     return this.http.post<Task>(this.apiUrl, task)
+  }
+
+  private formStatusSource = new BehaviorSubject(false); // set default status
+  currentFormStatus = this.formStatusSource.asObservable();
+  // currentFormStatus: boolean = false;
+
+  changeFormStatusService(status: boolean) {
+    // return this.formStatusSource = !this.currentFormStatus
+    this.formStatusSource.next(status)
   }
 
 

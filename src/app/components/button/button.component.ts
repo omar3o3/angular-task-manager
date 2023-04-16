@@ -1,4 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { TaskService } from 'src/app/services/task.service';
 
 @Component({
   selector: 'app-button',
@@ -16,5 +17,18 @@ export class ButtonComponent {
     this.btnClick.emit()
   }
   // constructor() { }
-  // ngOnInit(): void{}
+
+  status!:boolean;
+
+  constructor(private taskService: TaskService){}
+
+  ngOnInit() {
+    // this.data.currentStatus.subscribe(status => this.status = status)
+    // this.taskService.currentFormStatus.subscribe(status => this.status = status)
+    // this.taskService.changeFormStatusService.subscribe(status => this.status = status)
+  }
+
+  // changeStatus() {
+  //   this.data.changeStatus("ON")
+  // }
 }

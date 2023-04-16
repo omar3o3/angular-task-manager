@@ -16,17 +16,9 @@ export class AddTaskComponent implements OnInit{
   day!: string;
   reminder: boolean = false;
   showWarning: boolean = false;
-  // console.log(text)
-  // FIRST ATTEMPT
-  // not sure
-  // output for sending new task to parent task.ts to update ui
-  // @Output() updateTaskEmitter = new EventEmitter()
-  // @Output() updateTaskEmitter = new EventEmitter<Task>()
-  // @Output() updateTaskEmitter: EventEmitter<Task> = new EventEmitter()
 
   // SECOND ATTEMPT
   @Output() updateTaskEmitter: EventEmitter<Task> = new EventEmitter()
-  // @Output() updateTaskEmitter = new EventEmitter<Task>();
 
   onSubmit(myForm: NgForm) {
     if (!this.text || !this.day) {
