@@ -17,7 +17,16 @@ export class AddTaskComponent implements OnInit{
   reminder: boolean = false;
   showWarning: boolean = false;
   // console.log(text)
-  @Output() newTask = new EventEmitter<Task>()
+  // FIRST ATTEMPT
+  // not sure
+  // output for sending new task to parent task.ts to update ui
+  // @Output() updateTaskEmitter = new EventEmitter()
+  // @Output() updateTaskEmitter = new EventEmitter<Task>()
+  // @Output() updateTaskEmitter: EventEmitter<Task> = new EventEmitter()
+
+  // SECOND ATTEMPT
+  @Output() updateTaskEmitter: EventEmitter<Task> = new EventEmitter()
+  // @Output() updateTaskEmitter = new EventEmitter<Task>();
 
   onSubmit(myForm: NgForm) {
     if (!this.text || !this.day) {
@@ -32,14 +41,15 @@ export class AddTaskComponent implements OnInit{
       //   day: this.day,
       //   reminder: this.reminder
       // }
-      const newTask = {
+      const task = {
         text: myForm.value.text,
         day: myForm.value.day,
         reminder: myForm.value.reminder
       }
-      // this.newTask.emit(newTask)
-      this.taskService.addTask(newTask).subscribe(task => console.log('from subscribe' , task))
-      myForm.resetForm();
+      
+      this.updateTaskEmitter.emit(task)
+      console.log("from child task" , task)
+
     }
   }
 
