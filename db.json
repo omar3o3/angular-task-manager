@@ -17,18 +17,6 @@
       "text": "Food Shopping",
       "day": "May 7th at 12:30pm",
       "reminder": false
-    },
-    {
-      "text": "update tasks 4",
-      "day": "update tasks 4",
-      "reminder": false,
-      "id": 8
-    },
-    {
-      "text": "update tasks 5",
-      "day": "update tasks 5",
-      "reminder": false,
-      "id": 9
     }
   ]
 }
